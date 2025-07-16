@@ -12,6 +12,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileSystemView;
@@ -35,7 +37,8 @@ public class SeleniumApp {
     
     WebDriver driver;
    
-   String path = "/Users/itteam2/Downloads/chromedriver-mac-arm64/chromedriver";
+   //String path = "/Users/gdkn/Downloads/chromedriver-mac-arm64/chromedriver";
+    String path = "/Users/gdknmac/Downloads/chromedriver-mac-arm64_2/chromedriver";
    
    public void launchBrowser() throws InterruptedException{
        
@@ -355,14 +358,21 @@ driver.findElement(By.ByClassName.className("normalbutton")).click();
    }
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
-        
-        //new SeleniumTest().pickExcelandShow();
-       new DisplayData().setVisible(true);
+        try {
+            System.out.println("Hello World!");
+            
+            //new SeleniumTest().pickExcelandShow();
+            //  new DisplayData().setVisible(true);
+            // new OrderAutomationWithCategories().runAutomation();
+            OrdersTest test = new OrdersTest();
+            test.runTest();
 //       try {
-//           new SeleniumTest().launchBrowser();
+//           new SeleniumApp().launchBrowser();
 //       } catch (InterruptedException ex) {
-//           Logger.getLogger(SeleniumTest.class.getName()).log(Level.SEVERE, null, ex);
+//           Logger.getLogger(SeleniumApp.class.getName()).log(Level.SEVERE, null, ex);
 //       }
+        } catch (InterruptedException ex) {
+            Logger.getLogger(SeleniumApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

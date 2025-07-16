@@ -60,6 +60,7 @@ public class DisplayData extends javax.swing.JFrame {
     
     WebDriver driver;
    
+    //String path = "/Users/gdknmac/Downloads/chromedriver-mac-arm64/chromedriver";
     String path = "/Users/gdknmac/Downloads/chromedriver-mac-arm64/chromedriver";
     
     public static ArrayList<UserLogin> userloginList = new ArrayList();
@@ -169,7 +170,7 @@ public class DisplayData extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
   
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+            // TODO add your handling code here:
         new SeleniumApp().pickExcelandShow(this);
        
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -209,9 +210,7 @@ public class DisplayData extends javax.swing.JFrame {
             Connection connection = DriverManager.getConnection(url, userid, password);
             getDefendants(connection,tname);
             
-        } catch (SQLException ex) {
-            Logger.getLogger(DisplayData.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) {
+        } catch (SQLException | HeadlessException | IOException ex) {
             Logger.getLogger(DisplayData.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -225,9 +224,10 @@ public class DisplayData extends javax.swing.JFrame {
         
         
          //  Connect to an MySQL Database, run query, get result set
-        String url = "jdbc:mysql://localhost:3306/sales?autoReconnect=true&useSSL=false";
+       // String url = "jdbc:mysql://localhost:3306/sales?autoReconnect=true&useSSL=false";
+        String url = "jdbc:postgresql://db.uemeveqaieirbzvgzexf.supabase.co:5432/postgres?user=root&password=Tuneer2655";
         String userid = "root";
-        String password = "Root@2655";
+        String password = "Tuneer2655";
         String sql = "SHOW TABLES";
      
         try (Connection connection = DriverManager.getConnection( url, userid, password );
